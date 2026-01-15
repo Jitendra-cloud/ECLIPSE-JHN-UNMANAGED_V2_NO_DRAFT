@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: { typeName: 'Travel',
+typeNamePlural: 'Travels',
+title: { type: #STANDARD,
+value: 'TravelID' } } }
+
+annotate view ZJS_C_TRAVEL_U with
+
+{
+  @UI.facet: [ { id: 'Travel', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Travel', position: 10 },
+               { id: 'Booking', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Booking', position: 20, targetElement: '_Booking'}]
+
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.identification: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10 } ]
+  TravelID;
+
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.identification: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  AgencyID;
+
+  @UI: { lineItem: [ { position: 30, importance: #HIGH, cssDefault.width: '200px' } ],
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ] }
+  CustomerID;
+
+  @UI.identification: [ { position: 40 } ]
+  BeginDate;
+
+  @UI.identification: [ { position: 41 } ]
+  EndDate;
+
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM, cssDefault.width: '140px', label: 'Begin Date' } ]
+  FormatedBeginDate;
+
+  @UI.lineItem: [ { position: 41, importance: #MEDIUM, cssDefault.width: '140px', label: 'End Date' } ]
+  FormatedEndDate;
+
+  @UI: { identification: [ { position: 42 } ] }
+  BookingFee;
+
+  @UI: { identification: [ { position: 43 } ] }
+  TotalPrice;
+
+  @UI: { identification:[ { position: 45, label: 'Comment' } ],
+         lineItem: [ { position: 60, importance: #HIGH, cssDefault.width: '300px' } ] }
+  Memo;
+
+  @UI: { lineItem: [ { position: 50, importance: #HIGH, cssDefault.width: '160px' },
+                     { type: #FOR_ACTION, dataAction: 'set_status_booked', label: 'Set to Booked' } ],
+  identification: [ { position: 46, label: 'Travel Status' } ],
+  selectionField: [{ position: 40 }],
+  textArrangement: #TEXT_ONLY }
+  Status;
+
+  @UI.hidden: true
+  StatusText;
+
+}
