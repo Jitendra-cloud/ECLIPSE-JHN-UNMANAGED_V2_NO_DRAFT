@@ -1,7 +1,7 @@
 @EndUserText.label: 'Travel Projection View'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
-@Metadata.allowExtensions: true
+@Metadata.allowExtensions: false
 
 @Search.searchable: true
 define root view entity ZJS_C_TRAVEL_U

@@ -22,6 +22,8 @@ CREATE PUBLIC .
       RETURNING
         VALUE(fail_cause) TYPE if_abap_behv=>t_fail_cause.
 
+protected section.
+private section.
 ENDCLASS.
 
 
